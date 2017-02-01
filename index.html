@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>PropheSee Task</title>
+    <link rel="stylesheet" href="vendor_scripts/bootstrap/dist/css/bootstrap.min.css" media="screen,projection">
+    <link rel="stylesheet" href="assets/css/style.css" media="screen,projection">
+    <link rel="stylesheet" href="vendor_scripts/AngularJS-Toaster/toaster.css">
+
+    <!--------FONT ICONS---------->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+
+
+<body ng-app="myApp" ng-init="fill_value=40;" >
+
+    <!------------- Model for Charts -------------->
+    <div class="modal fade" id="chartsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" id="lineModalLabel">Charts</h3>
+                </div>
+                <div class="modal-body">
+
+                    <div class="tabbable-panel">
+                        <div class="tabbable-line">
+                            <ul class="nav nav-tabs ">
+                                <li class="active">
+                                    <a href="#tab_default_1" data-toggle="tab">
+							D3JS Chart </a>
+                                </li>
+                                <li>
+                                    <a href="#tab_default_2" data-toggle="tab">
+							High Charts </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_default_1">
+                                    <bars data="40,4,55,15,16,33,52,20"></bars>
+                                </div>
+                                <div class="tab-pane" id="tab_default_2">
+                                    <div ng-controller="myctrl">
+                                        <div class="row">
+                                            <div class="span9">
+                                                <div class="row">
+                                                    <highchart id="chart1" config="chartConfig" class="span9" style="height:350px;"></highchart>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------- Model for Illustration -------------->
+    <div class="modal fade" id="illustrationModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" id="lineModalLabel">Illustration</h3>
+                </div>
+                <div class="modal-body">
+                    <form name="myForm" ng-init="">
+                        <input type="number" class="form-control inp" ng-model="fill_value" ng-min="0" ng-max="100" name="value" placeholder="Enter Percentage" />
+
+                        <span class="input-help">Value entered should be between 0 to 100.</span>
+
+                    </form>
+
+                    <center>
+                        <svg height="200" class="illust" preserveAspectRatio="xMidYMid meet" viewBox="143 143 200 200">
+                            <a transform="translate(0,0)">
+                                <g>
+                                    <path fill="#e77400" stroke="#000000" stroke-width="3" d="M301.625,277.853h-11.784
+	c-13.015,0-23.567-10.553-23.567-23.568v-7.571c5.214-6.197,8.953-13.527,11.278-21.272c0.241-1.306,1.498-1.951,2.336-2.848
+	c4.512-4.511,5.399-12.123,2.015-17.543c-0.461-0.823-1.291-1.536-1.244-2.555c0-6.91,0.035-13.831-0.009-20.736
+	c-0.185-8.337-2.568-17.008-8.412-23.182c-4.719-4.988-11.198-7.957-17.882-9.228c-8.447-1.611-17.284-1.53-25.65,0.598
+	c-7.25,1.83-14.062,6.076-18.273,12.37c-3.729,5.472-5.363,12.117-5.639,18.665c-0.103,7.031-0.024,14.079-0.045,21.126
+	c0.16,1.411-1.036,2.366-1.577,3.534c-3.187,5.782-1.784,13.66,3.337,17.865c1.299,0.897,1.543,2.531,2.013,3.941
+	c2.233,6.962,5.938,13.4,10.621,19.01v7.825c0,13.015-10.552,23.568-23.567,23.568h-11.784c0,0-21.357,5.89-35.35,35.349v11.784
+	c0,6.512,5.27,11.782,11.784,11.782h164.968c6.512,0,11.782-5.27,11.782-11.782v-11.784
+	C322.981,283.746,301.625,277.853,301.625,277.853z" />
+                                </g>
+                                <g>
+                                    <clipPath id="clipPath3">
+                                        <path d="M301.625,277.853h-11.784
+	c-13.015,0-23.567-10.553-23.567-23.568v-7.571c5.214-6.197,8.953-13.527,11.278-21.272c0.241-1.306,1.498-1.951,2.336-2.848
+	c4.512-4.511,5.399-12.123,2.015-17.543c-0.461-0.823-1.291-1.536-1.244-2.555c0-6.91,0.035-13.831-0.009-20.736
+	c-0.185-8.337-2.568-17.008-8.412-23.182c-4.719-4.988-11.198-7.957-17.882-9.228c-8.447-1.611-17.284-1.53-25.65,0.598
+	c-7.25,1.83-14.062,6.076-18.273,12.37c-3.729,5.472-5.363,12.117-5.639,18.665c-0.103,7.031-0.024,14.079-0.045,21.126
+	c0.16,1.411-1.036,2.366-1.577,3.534c-3.187,5.782-1.784,13.66,3.337,17.865c1.299,0.897,1.543,2.531,2.013,3.941
+	c2.233,6.962,5.938,13.4,10.621,19.01v7.825c0,13.015-10.552,23.568-23.567,23.568h-11.784c0,0-21.357,5.89-35.35,35.349v11.784
+	c0,6.512,5.27,11.782,11.784,11.782h164.968c6.512,0,11.782-5.27,11.782-11.782v-11.784
+	C322.981,283.746,301.625,277.853,301.625,277.853z" />
+                                    </clipPath>
+
+
+                                    <rect width="400" height="{{ 337 - (2 * fill_value) }}" style="fill:#fff; clip-path: url(#clipPath3); " />
+
+                                </g>
+                            </a>
+                        </svg>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------- Dropdown Navigation -------------->
+    <h1 class="heading">Task</h1>
+
+    <nav>
+        <ul>
+            <li class="drop">
+                <div class="user-avatar"></div><a href="#">Select Task</a> <span aria-hidden="true" class="glyphicon glyphicon-menu-hamburger orange-txt"></span>
+                <div class="triangle"></div>
+                <div class="dropdownContain">
+                    <div class="dropOut">
+                        <ul>
+                            <a data-toggle="modal" data-target="#chartsModal">
+                                <li><span aria-hidden="true" class="icon-envelope-alt"></span>Charts</li>
+                            </a>
+                            <a data-toggle="modal" data-target="#illustrationModal">
+                                <li><span aria-hidden="true" class="icon-envelope-alt"></span>Illustration</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+        </ul>
+    </nav>
+
+    <!-----------SCRIPTS---------->
+    <script src="vendor_scripts/jquery/dist/jquery.min.js"></script>
+    <script src="vendor_scripts/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor_scripts/angular/angular.min.js"></script>
+    <script src="vendor_scripts/highcharts-ng/dist/highstocks.js"></script>
+    <script src="vendor_scripts/highcharts-ng/dist/highcharts-ng.js"></script>
+    <script src="vendor_scripts/d3/d3.min.js" charset="utf-8"></script>
+    <script src="app.js"></script>
+    <script src="angular_components/directives/validationDirective.js"></script>
+    <script src="angular_components/directives/d3Directive.js"></script>
+    <script src="angular_components/controllers/highChartCtrl.js"></script>
+    <script src="assets/js/script.min.js"></script>
+
+</body>
+
+</html>
